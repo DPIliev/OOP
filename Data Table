@@ -10,42 +10,42 @@ class Column{
                 DataType type;
                 char* name;
       public:
-		     Column()
-			 {
+		Column()
+	        {
                 name=new char[1];
                 name='\0';
-			 }
+		}
 			 
-			 void print()
-			 {
-                cout<<name<<",";
-                cout<<type<<endl;     
-             }
+		void print()
+	        {
+                 cout<<name<<",";
+                 cout<<type<<endl;     
+                }
 			 
-			 Column(DataType _type,char* _name)
-			 {
+			 
+		Column(DataType _type,char* _name)
+		{
                  type=_type;
                  name=new char[strlen(_name)+1];
-				 strcpy(name,_name);            
-                             
-             }
-             Column(Column& other)
-             {
+		 strcpy(name,_name);            
+                }
+                
+                Column(Column& other)
+                {
                  type=other.takeType();
                  name=new char[strlen(other.getName())+1];
                  strcpy(name,other.getName());
-                              
-             }
+                }
              
              Column& operator=(const Column& other)
              {
                  if(this!=&other)
-                 {
-                    delete name;                 
+                {
+                 delete name;                 
                   
                  type=other.takeType();
                  name=new char[strlen(other.getName())+1];
-				 strcpy(name,other.getName());
+		 strcpy(name,other.getName());
                 }
                 return *this;
              }
@@ -57,10 +57,10 @@ class Column{
              }
              
              
-			 char* getName() const
-			 {
-			      return name;
-			 }
+	     char* getName() const
+	     {
+	        return name;
+	     }
             
             
              ~Column()
@@ -115,15 +115,12 @@ class Column{
                    
                    Int& operator=(const Int& other)
                    {
-                         number=other.getNumber();     
-                        
-                        
+                         number=other.getNumber();   
                    }
                    
                    
                    void  setData(const char* _data)
                    {
-                   
                          number=atoi(_data);
                    }
                    
